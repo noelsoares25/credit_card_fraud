@@ -21,3 +21,26 @@ stages:
       md5: fcd0de5a444c032acf61ffbd68275b8b.dir
       size: 151102527
       nfiles: 2
+  train_model:
+    cmd: python .\src\models\train_model.py .\data\processed
+    deps:
+    - path: .\data\processed\
+      hash: md5
+      md5: fcd0de5a444c032acf61ffbd68275b8b.dir
+      size: 151102527
+      nfiles: 2
+    - path: .\src\models\train_model.py
+      hash: md5
+      md5: aa3b1e7744a2321e8c72bf925afd9a71
+      size: 1313
+    params:
+      params.yaml:
+        train_model.max_depth: 8
+        train_model.n_estimators: 50
+        train_model.seed: 21
+    outs:
+    - path: .\models\
+      hash: md5
+      md5: 13e0daceaa5d1faba25d4fea3a861696.dir
+      size: 379737
+      nfiles: 1
