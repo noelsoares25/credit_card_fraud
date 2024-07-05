@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Users/NOEL%20SOARES/Desktop/DSMP/credit_card_fraud/mlruns/0/c102b431dc0d4dd3893baee91af4a356/artifacts
+end_time: 1719230255618
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c102b431dc0d4dd3893baee91af4a356
+run_name: popular-bass-99
+run_uuid: c102b431dc0d4dd3893baee91af4a356
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719230252294
+status: 3
+tags: []
+user_id: NOEL SOARES

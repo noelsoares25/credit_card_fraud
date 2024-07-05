@@ -6,6 +6,7 @@ import pandas as pd
 from sklearn import metrics
 from sklearn import tree
 from dvclive import Live
+import mlflow
 from matplotlib import pyplot as plt
 
 def evaluate(model, X, y, split, live, save_path):
@@ -31,6 +32,10 @@ def evaluate(model, X, y, split, live, save_path):
         live.summary = {"avg_prec": {}, "roc_auc": {}}
     live.summary["avg_prec"][split] = avg_prec
     live.summary["roc_auc"][split] = roc_auc
+    
+    mlflow.log_metric(f"avg_prec_{split}", avg_prec)
+    mlflow.log_metric(f"roc_auc_{split}", roc_auc)
+    
     # ... and plots...
     # ... like an roc plot...
     live.log_sklearn_plot("roc", y, predictions, name=f"roc/{split}")
@@ -100,8 +105,9 @@ def main():
     y_test = test_features[TARGET]
     
     with Live(output_path, dvcyaml=False) as live:
-        evaluate(model, X_train, y_train, "train", live, output_path)
-        evaluate(model, X_test, y_test, "test", live, output_path)
+        with mlflow.start_run():
+            evaluate(model, X_train, y_train, "train", live, output_path)
+            evaluate(model, X_test, y_test, "test", live, output_path)
         
         # Dump feature importance plot.
         save_importance_plot(live, model, feature_names)

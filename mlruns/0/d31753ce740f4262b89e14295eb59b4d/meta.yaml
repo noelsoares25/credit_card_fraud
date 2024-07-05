@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Users/NOEL%20SOARES/Desktop/DSMP/credit_card_fraud/mlruns/0/d31753ce740f4262b89e14295eb59b4d/artifacts
+end_time: 1719229764416
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d31753ce740f4262b89e14295eb59b4d
+run_name: fortunate-shrew-950
+run_uuid: d31753ce740f4262b89e14295eb59b4d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719229761724
+status: 4
+tags: []
+user_id: NOEL SOARES
